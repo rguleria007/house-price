@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='style.css') }}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>House-Price-Prediction-App</title>
+  </head>
+  
+ <body>
+
+      <!----- Navbar from here ----->
+
+      <nav class="navbar navbar-expand-lg" style="background-color: azure;">
+        <div class="container">
+         <a class="navbar-brand" href="#"></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            
+          </ul>
+        </div>
+    </div>
+  </nav>
+
+
+
+  <section class="main py-5">
+      <div class="container py-5">
+          <div class="row py-5">
+              <div class="col-lg-10 py-5 mx-auto">
+                  <h1 class="text-white text-center" style="text-shadow:1px 1px 1px black;">Find Your Dream Home</h1>
+                  <p class="text-white text-center" style="text-shadow:1px 1px 1px black;">Predicting the House price using Machine Learning</p>
+
+                  <div class="card mt-4" id="home" style="opacity: 0.92;
+                  border: 1rem solid rgb(158, 255, 68);
+                  border-radius: 30px; background-color: azure;">
+                      <div class="card-body">
+                          <div class="column">
+
+                                <!---------- Main Input For Receiving Query to our ML ---------->
+                                <div class="row-cols-1">
+
+                                    <form action="/predict"method="POST">
+
+                                        <h2 style="color: rgb(253, 51, 0); text-align: center; text-shadow:2px 3px 8px rgb(68, 56, 56);"><b>Predict House Prices</b></h2>
+                                        <br>
+
+                                        <table>
+
+                                            <!---------- Average Area Income ---------------------------------------------------------->
+                                            <tr>
+                                                <td><sup>*</sup> Average Income (per annum) </td>
+                                                <td>
+                                                    <select class="mt-2" name="avg-income" id="avg-income" required="*">
+                                                        <option value="">----------Select:----------</option>
+                                                        <option value="10000">10K</option>
+                                                        <option value="15000">15K</option>
+                                                        <option value="20000">20K</option>
+                                                        <option value="25000">25K</option>
+                                                        <option value="30000">30K</option>
+                                                        <option value="35000">35K</option>
+                                                        <option value="40000">40K</option>
+                                                        <option value="45000">45K</option>
+                                                        <option value="50000">50K</option>
+                                                        <option value="55000">55K</option>
+                                                        <option value="60000">60K</option>
+                                                        <option value="65000">65K</option>
+                                                        <option value="70000">70K</option>
+                                                        <option value="75000">75K</option>
+                                                        <option value="80000">80K</option>
+                                                        <option value="85000">85K</option>
+                                                        <option value="90000">90K</option>
+                                                        <option value="95000">95K</option>
+                                                        <option value="100000">100K</option>
+                                                        <option value="105000">105K</option>
+                                                        <option value="110000">110K</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            
+                                            <!---------- Average Area House Age ---------------------------------------------------------->
+                                            <tr>
+                                                <td><sup>*</sup>House Age (in years)</td>
+                                                <td>
+                                                    <select class="mt-2" name="house-age" id="house-age" required="*">
+                                                        <option value="">----------Select:----------</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3 </option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <!---------- Average Area Number of Rooms ---------------------------------------------------------->
+                                            <tr>
+                                                <td><sup>*</sup>Total number of Rooms</td>
+                                                <td>
+                                                    <select class="mt-2" name="rooms" id="rooms" required="*">
+                                                        <option value="">----------Select:----------</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3 </option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                             <!---------- Average Area Number of Bedrooms ---------------------------------------------------------->
+                                             <tr>
+                                                <td><sup>*</sup>Total number of Bedrooms</td>
+                                                <td>
+                                                    <select class="mt-2" name="bedrooms" id="bedrooms" required="*">
+                                                        <option value="">----------Select:----------</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3 </option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                             <!---------- Area Population ---------------------------------------------------------->
+                                             <tr>
+                                                <td><sup>*</sup>Area Population</td>
+                                                <td>
+                                                    <select class="mt-2" name="population" id="population" required="*">
+                                                        <option value="">----------Select:----------</option>
+                                                        <option value="1000">1K</option>
+                                                        <option value="2000">2K</option>
+                                                        <option value="5000">5K</option>
+                                                        <option value="10000">10K </option>
+                                                        <option value="15000">15K</option>
+                                                        <option value="20000">20K</option>
+                                                        <option value="25000">25K</option>
+                                                        <option value="30000">30K</option>
+                                                        <option value="35000">35K</option>
+                                                        <option value="40000">40K</option>
+                                                        <option value="45000">45K</option>
+                                                        <option value="50000">50K</option>
+                                                        <option value="55000">55K</option>
+                                                        <option value="60000">60K</option>
+                                                        <option value="65000">65K</option>
+                                                        <option value="70000">70K</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <br>
+                                        <br>
+                                        <p><button type="submit" class="predict-btn"><b>Predict</b></button></p>
+
+                                    </form>
+                                    
+                                    <br>
+                                    <h4><b style="text-shadow:3px 3px 8px rgb(75, 75, 75);">{{text1}}</b>
+                                        <b style="color: red; text-shadow:6px 6px 6px rgb(253, 237, 16);">{{predicted_value}}</b>
+                                        <b style="text-shadow:3px 3px 8px rgb(75, 75, 75);">{{text2}}</b>
+                                    </h4>
+                                    <br>
+
+                                </div>
+
+                         </div>
+                     </div>
+                 </div> 
+             </div>
+         </div>
+      </div>
+  </section>
+
+  <section class="aboutme py-4"  id="about_me">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-4">
+                  <img src="{{ url_for('static', filename ='my_img.jpg') }}" class="img-fluid" alt="">
+              </div>
+              <div class="col-lg-8" style="background-color: azure;">
+                  <h1 class="text-center py-3" style="color: rgb(255, 100, 0); text-shadow:6px 6px 6px rgb(210, 210, 160);">About Me</h1>
+                  <h4 class="py-1" style="color: rgb(0, 0, 230); text-shadow:1px 6px 5px rgb(127, 210, 243);"><b>Rhythm Guleria</b></h4>
+                  <p class="py-2">
+                    I'm a B.Tech final year student specialised in <b>Computer Science and Engineering</b> at the
+                    <i> Thapar Institute of Engineering and Technology, Patiala (Punjab), India.</i>
+                    
+                    
+                  </p>
+
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+
+ </body>
+</html>
